@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size:9pt;
+	height:100%;
+}
+html { 
+	min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative
+	height:100%; }
+
+
+.clear { clear: both; }
+
+#header {
+	background: #e3da9d;
+	padding: 15px 0 15px 15px;
+}
+
+#content {
+	padding: 15px 30px 0 0;
+	}
+	#main-content {
+		margin-left: 310px;
+		
+	}
+
+#sidebar {
+	width: 280px;
+	float: left;
+	padding: 0 2px 0 15px;
+	}
+	#sidebar ul {
+		list-style: inside;
+	}
+
+#upload{
+    display:none
+}
+
+#symbols{
+
+	display:block;
+}
+
+
