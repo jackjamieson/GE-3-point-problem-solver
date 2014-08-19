@@ -1,6 +1,7 @@
 var ge;//Google Earth reference
 var geocoder = null;//geocode reference
 
+var bordersEnabled = true;
 
 //x,y,z for the 3 points
 var point1 = [];
@@ -42,7 +43,7 @@ function initCB(instance) {
 	var terrainLayer = layerRoot.getLayerById(ge.LAYER_TERRAIN);
 	terrainLayer.setVisibility(true);
 	ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
-	ge.getTime().setHistoricalImageryEnabled(true);
+	//ge.getTime().setHistoricalImageryEnabled(true);
 
 	//Track mouse movements and output them left of the plugin window
 	google.earth.addEventListener(ge.getWindow(), 'mousemove', function(event) {
@@ -158,6 +159,12 @@ function plotPoint(title, lat, lon){
 
 	var placemark = ge.createPlacemark('');
 	placemark.setName(title);
+	// Define a custom icon.
+	var icon = ge.createIcon('');
+	icon.setHref('http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png');
+	var style = ge.createStyle(''); //create a new style
+	style.getIconStyle().setIcon(icon); //apply the icon to the style
+	placemark.setStyleSelector(style); //apply the style to the placemark
 
 	// Set the placemark's location.  
 	var point = ge.createPoint('');
@@ -182,12 +189,17 @@ function drawSymbol(p2, dist, dip, dipaz)
 	dipF = dipF.toString();
 	if(dipF.length == 1)
 	{
-		dipF = "00" + dipF.toString();	
+		dipF = "0" + dipF.toString();	
 	}
-	if(dipF.length == 2)
+	if(dipAzF.length == 2)
 	{
 		dipF = "0" + dipF.toString();	
 	}
+	if(dipAzF.length == 1)
+	{
+		dipF = "00" + dipF.toString();	
+	}
+	
 	console.log(dipF.length);
 	plotPoint("" + dipF + "/" + dipAzF, p2[0], p2[1]);
 
@@ -206,7 +218,7 @@ function drawSymbol(p2, dist, dip, dipaz)
 
 	// Placemark/Model/Link
 	var link = ge.createLink('');
-	link.setHref('your_url' + option.item(0).value + '.dae');
+	link.setHref('https://dl.dropboxusercontent.com/u/89445333/GEsymbols/' + option.item(0).value + '.dae');
 	model.setLink(link);
 
 	// Placemark/Model/Location
@@ -229,7 +241,7 @@ function drawSymbol(p2, dist, dip, dipaz)
 			scale.set(dist/5 , dist/5, 1.0);
 
 		}
-		else scale.set(Number($('#scalex').val()) ,Number($('#scaley').val()), 1.0);
+		else scale.set(Number($('#scalex').val())/10 ,Number($('#scaley').val())/10, 1.0);
 	}
 	else
 	{
@@ -284,18 +296,18 @@ function eventHandler(event) {
 				point1.push(latitude, longitude, groundAltitude);
 
 				//Plot the point on the map
-				//plotPoint("P1", point1[0], point1[1]);
+				plotPoint("P1", point1[0], point1[1]);
 
 				break;
 			case 2:
 				point2.push(latitude, longitude, groundAltitude);
-				//plotPoint("P2", point2[0], point2[1]);
+				plotPoint("P2", point2[0], point2[1]);
 
 				break;
 			case 3:
 				point3.push(latitude, longitude, groundAltitude);
 
-				//plotPoint("P3", point3[0], point3[1]);
+				plotPoint("P3", point3[0], point3[1]);
 
 				//Find which is highest, medium, lowest
 				var p1z, p2z, p3z;
@@ -430,19 +442,19 @@ function manualPlot(lat1, lon1, alt1, lat2, lon2, alt2, lat3, lon3, alt3) {
 	//var groundAltitude = ge.getGlobe().getGroundAltitude(lat1, lon1);
 	point1.push(lat1, lon1, alt1);
 	//Plot the point on the map
-	//plotPoint("P1", lat1, lon1);
+	plotPoint("P1", lat1, lon1);
 
 
 	//plot p2
 	//groundAltitude = ge.getGlobe().getGroundAltitude(lat2, lon2);
 	point2.push(lat2, lon2, alt2);
-	//plotPoint("P2", lat2, lon2);
+	plotPoint("P2", lat2, lon2);
 
 
 	//plot p3
 	//groundAltitude = ge.getGlobe().getGroundAltitude(lat3, lon3);
 	point3.push(lat3, lon3, alt3);
-	//plotPoint("P3", lat3, lon3);
+	plotPoint("P3", lat3, lon3);
 
 	//Find which is highest, medium, lowest
 	var p1z, p2z, p3z;
@@ -845,6 +857,37 @@ $('#delete').click(function() {
 		features.removeChild(features.getFirstChild());
 });
 
+//toggle historical imagery
+$('#hist').click(function() {
+
+	if(ge.getTime().getHistoricalImageryEnabled() == true)
+	{
+		ge.getTime().setHistoricalImageryEnabled(false);
+
+	}
+	else ge.getTime().setHistoricalImageryEnabled(true);
+
+
+});
+
+//toggle borders/places
+$('#bord').click(function() {
+
+	if(bordersEnabled == true)
+	{
+		ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, false);
+		bordersEnabled = false;
+	}
+	else
+	{
+		ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+		bordersEnabled = true;
+	}
+
+
+
+});
+
 //Handles file "uploads" for importing KML.  Imagery must be web accessible.
 window.onload = function() {
 	var fileInput = document.getElementById('upload');
@@ -859,6 +902,7 @@ window.onload = function() {
 			reader.readAsBinaryString(file);		
 			reader.onload = function(e) {
 				importKML(reader.result);
+				$('#upload').val('')
 			}
 
 

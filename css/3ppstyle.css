@@ -46,4 +46,17 @@ html {
 	display:block;
 }
 
+#helpdoc
+{
+	padding:20px;
+	padding-left:200px;
+	padding-right:200px;
+	
+}
+
+.linkBack{
+
+	font-size:16pt;
+}
+
 
