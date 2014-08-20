@@ -936,6 +936,25 @@ function importKML(input)
 
 
 }
+
+$(document).ready(function() {
+
+  setHeight($('#map3d'), $('#sidebar'));
+
+  // When the window is resized the height might
+  // change depending on content. So to be safe
+  // we rerun the function
+  $(window).on(resize, function() {
+      setHeight($('#map3d'), $('#sidebar'));        
+  });
+
+});
+
+// sets height of element 1 to equal the height of element 2
+function setHeight(elem1, elem2) {
+  var height = elem2.height()
+  elem1.css('height', height); 
+}
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
