@@ -28,7 +28,7 @@ function load() {
 
 //Create instance of GE
 function init() {
-	google.earth.createInstance('map3d', initCB, failureCB);
+	google.earth.createInstance('map3d', initCB, failureCB, { database: 'http://khmdb.google.com/?db=mars' });
 }
 
 //If GE succeeds setup, run this method
@@ -49,7 +49,7 @@ function initCB(instance) {
 	var layerRoot = ge.getLayerRoot();
 	var terrainLayer = layerRoot.getLayerById(ge.LAYER_TERRAIN);
 	terrainLayer.setVisibility(true);
-	ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+	//ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
 	//ge.getTime().setHistoricalImageryEnabled(true);
 
 	//Track mouse movements and output them left of the plugin window

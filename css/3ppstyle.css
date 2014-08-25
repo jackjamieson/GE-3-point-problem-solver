@@ -6,9 +6,11 @@
 body {
 	font-size:9pt;
 	min-height:100%
+
 }
 html { 
 	min-height:100%;/* make sure it is at least as tall as the viewport */
+	
 	 }
 
 

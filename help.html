@@ -43,15 +43,22 @@
 				<li><a href="#scale">Symbol Scale</a></li>
 				<li><a href="#out">Outputs</a></li>
 				<li><a href="#math">Math behind the solver</a></li>
-				<li><a href="#limitations">Limitations of Google Earth</a></li>
+				<li><a href="#limitations">Limitations</a></li>
+				<li><a href="#systemreqs">System requirements</a></li>
 				<li><a href="#references">References</a></li>
+				<li><a href="#otherglobes">Moon and Mars</a></li>
+
 
 			</ul>
+			<a id="what"><strong>How do I use this?</strong></a>
+			<br>To get started with this tool, find a spot where you want measure the strike, dip, or dip azimuth of the land and Alt+Click three times along the area.  Using areas of different elevation that are in a relatively straight line will yield the best results.  Alternatively, you can enter three points and elevations into the manual plot boxes and click <a href="#manual">Manual Plot.</a><br>
+			<p>For help with using the other features of this application check the other help topics.</p>
+			
 			<a id="what"><strong>What is the purpose of this tool?</strong></a>
 			<br>The purpose of this tool is to allow interactive 3D three-point problem solving.  It can be used to calculate planes, strike, dip, and many other geological features.  A powerful part of this tool is that once the symbols have been placed they can be <a href="#export">exported</a> to Google Earth Desktop to be further manipulated and examined.<br>
 			
 			<br><a id="who"><strong>Who built this tool?</strong></a>
-			<br>This tool was built by Jack Jamieson and Greg Herman, with help from several sources on the web.  These can be found in the <a href="#references">references.</a><br>
+			<br>This tool was built by Jack Jamieson (Software Developer) and Greg Herman (Structural Geologist), with help from several sources on the web.  These can be found in the <a href="#references">references.</a><br>
 			
 			<br><a id="fly"><strong>Fly to</strong></a>
 			<br>Fly to allows you to go anywhere on the globe simply by typing in the name of that place.  It works similarly to Google Maps and is fairly good at guessing what you are looking for.  It also accepts latitude, longitude values.<br>
@@ -78,7 +85,7 @@
 			Symbol listing:<br>
 			
 			<br><a id="scale"><strong>Symbol Scale</strong></a>
-			<br>Only 3D circles may be scaled.  All other symbols are 2D and are auto-scaled based on the distance of your points.  If no scale is chosen then the tool will approximate a scale for you.  Otherwise, you can input numbers into x and y to scale the symbols in meters.<br>
+			<br>Only 3D circles may be scaled.  All other symbols are 2D and are auto-scaled based on the distance of your points.  If no scale is chosen then the tool will approximate a scale for you.  Otherwise, you can input numbers into x and y to scale the symbols in meters.  Sometimes the elevation of the earth will obscure the 2D symbol.  This can be fixed by exporting to KML and raising the symbol in GE Desktop.<br>
 			
 			<br><a id="out"><strong>Outputs</strong></a>
 			<br>At the bottom of the sidebar are the outputs.  These include the elevation, latitude, and longitude of your mouse position and the calculated strike, dip, dip azimuth, and quadrant after three points have been placed.<br>
@@ -86,8 +93,23 @@
 			<br><a id="math"><strong>Math behind the solver</strong></a>
 			<br>Haversine formula:<br>
 			
-			<br><a id="limitations"><strong>What is the purpose of this tool?</strong></a>
+			<br><a id="limitations"><strong>Limitations</strong></a>
+			<br>
+			
+			<br><a id="systemreqs"><strong>System requirements</strong></a>
+			<br>
+			The Google Earth plug-in has its own set of system requirements that your computer will need to meet to use this application.  See them at <a href="https://support.google.com/earth/answer/166094?hl=en">https://support.google.com/earth/answer/166094?hl=en</a><br>
+			
 			<br><a id="references"><strong>References</strong></a>
+			<br><a href="https://developers.google.com/earth/documentation/">https://developers.google.com/earth/documentation</a><br>
+			<a href="http://www.movable-type.co.uk/scripts/latlong.html">http://www.movable-type.co.uk/scripts/latlong.html</a><br>
+			
+			<br><a id="otherglobes"><strong>Moon and Mars</strong></a>
+			<br>This application is also available for the Moon and Mars.  These are experimental and may not be accurate or work exactly as expected.<br>
+			<a href="moon.html">Dynamic 3-Point Geological-Plane Solver MOON</a><br>
+			<a href="mars.html">Dynamic 3-Point Geological-Plane Solver MARS</a><br>
+
+
 
 
 
