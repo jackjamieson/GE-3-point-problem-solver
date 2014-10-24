@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="description" content="Plots geologic symbols on an interactive Google Earth instance by calculating a 3 point problem on the fly." />
+        <meta name="keywords" content="geology, geologic, google, earth, symbol, mapper, plotter, three, 3, point" />
+        <meta name="author" content="Jack Jamieson and Greg Herman">
+        <meta name="robots" content="index, follow">
+        <title>Dynamic 3-Point Geological-Plane Solver</title>
+        <!-- geology, three-point, solver -->
+
+
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/pure-min.css">
+        <link rel="stylesheet" href="css/buttons-min.css">
+        <link rel="stylesheet" href="css/3ppstyle.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+    </head>
+
+    <body>
+
+
+
+
+
+        <div id="sidebar">
+
+
+            <h3>Dynamic 3-Point Geological-Plane Solver</h3>
+            <p>
+                This tool solves a 3 point problem interactively.  <strong>Alt+Click 3 points where you want to solve the problem.</strong>  The points will be plotted along with the symbol chosen below.  The symbol will be placed at P2, along with Dip/Dip Azimuth.
+
+            </p>
+            If you need help navigating this tool, please consult the <a href="3pphelp.html">help file.</a>  If you want a bigger working area, <a href="3ppfull.html">click here to go fullscreen.</a>
+
+            <p></p>
+            <strong>Fly to:</strong>
+            <input type='text' id='geocode' size="17"  autofocus="true">
+            <a href="#" class="pure-button pure-button-primary" id="fly">Go</a>
+            </p>
+        <Strong>URL Import: </Strong><input type='text' id='urlkmz' size="15">
+        <a href="#" class="pure-button pure-button-primary" id="importURL" >Import KMZ</a>
+
+        <p></p>
+        <a href="#" class="pure-button pure-button-primary" id="hist" style="width:40%;">Toggle Historical</a>
+        <a href="#" class="pure-button pure-button-primary" id="bord" style="width:40%;">Toggle Borders</a>
+        <p></p>
+        <input id="upload" type="file"/>
+        <a href="#" type="file" class="pure-button pure-button-primary" id="import" style="width:40%;">Import KML (Local)</a>
+        <a href="#" download="3ppGeoSymbols.kml" class="pure-button pure-button-primary" id="export" style="width:40%;">Export Session</a>
+        <p>
+            <a href="#" class="pure-button pure-button-primary" id="delete" style="width:40%;">Clear All Data</a>
+            <a href="#" class="pure-button pure-button-primary" id="undo" style="width:40%;">Undo Last Point</a>
+
+        <p></p>
+
+        <a href="#" class="pure-button pure-button-primary" id="autoplot" style="width:40%;">Manual Plot</a>
+        <p></p>
+
+        P1 LAT <input type='text' id='lat1' size="8">
+        LON <input type='text' id='lon1' size="8">
+        ALT <input type='text' id='alt1' size="8">
+        <br>P2 LAT <input type='text' id='lat2' size="8">
+        LON <input type='text' id='lon2' size="8">
+        ALT <input type='text' id='alt2' size="8">
+        <br>P3 LAT <input type='text' id='lat3' size="8">
+        LON <input type='text' id='lon3' size="8">
+        ALT <input type='text' id='alt3' size="8">
+        <p></p>
+
+
+        <p></p>
+
+
+        <strong>Symbol to plot:</strong>  
+        <select id="sel">
+            <option value="5-m-Wcircle">White Circle (3D)</option>
+            <option value="5-m-Bcircle">Blue Circle (3D)</option>
+            <option value="5-m-Pcircle">Pink Circle (3D)</option>
+            <option value="arrow">Arrow</option>
+            <option value="bed">Bed</option>
+            <option value="cleavage">Cleavage</option>
+            <option value="joint">Joint</option>
+            <option value="layer">Layer</option>
+            <option value="slip">Slip</option>
+            <option value="Strike-dip">Strike-Dip</option>
+            <option value="arrow-white">Arrow White</option>
+            <option value="bed-white">Bed White</option>
+            <option value="cleavage-white">Cleavage White</option>
+            <option value="joint-white">Joint White</option>
+            <option value="layer-white">Layer White</option>
+            <option value="slip-white">Slip White</option>
+
+        </select>
+
+        <br></br>
+    <div id="symbols">
+        <strong>3D Symbol Dimensions (meters):</strong><br>
+        x <input type='text' id='scalex' size="15" placeholder="AUTO">
+        y <input type='text' id='scaley' size="15" placeholder="AUTO">
+    </div>
+
+    <p></p>
+    <div class="previews">
+        <span id="ground-altitude">Elevation: </span>
+        <br><span id="latitude">Latitude: </span>
+        <br><span id="longitude">Longitude: </span>
+        <p></p>
+        <span id="strike">Strike: </span>
+        <br><span id="dip">Dip: </span>
+        <br><span id="quad">Quadrant: </span>
+        <br><span id="dip-az">Dip Azimuth: </span>
+
+    </div>
+
+    </div>
+
+<div id="main-content">		
+    <div id="map3d" style=" width: 100%;"></div>
+</div>
+
+
+
+<div id="foot" class="foot"></div>
+
+</body>
+
+<!-- Scripts at the bottom so the page loads faster !-->
+
+<!--<script src='js/nav.js'></script>!-->
+<script src='js/jquery-1.11.1.min.js'></script>
+
+<script src='js/3pp.js'></script>
+
+</html>
+
