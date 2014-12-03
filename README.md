@@ -16,6 +16,6 @@ Uses the Google Earth JS API to interactively plot geological symbols and planes
 - Instantly solve strike, dip, quadrant, and dip azimuth
 
 ###Demo
-An up to date demo can be found at http://jackjamieson.nfshost.com/geoTools/3ppfull.html
+An up to date demo can be found at http://jackjamieson.me/geoTools/3ppfull.html
 
 There are some limitations that can be found in the help file linked to from the demo.  It is incomplete but some information can be found there.  Please submit an issue or pull request if you believe you have something to contribute to the help file!
