@@ -222,12 +222,10 @@ function exportFeatures()
 
 function exportCSV()
 {
-	var csv = ', Location 1, Location 2, Location 3, Strike, Dip, Dip Azimuth';
+	var csv = 'Latitude, Longitude, Elevation, Strike, Dip, Dip Azimuth\n';
 
 	csvArray.forEach(function(entry){
-		csv += '\nLatitude, ' + entry.loc1[0] + ', ' + entry.loc2[0] + ', ' + entry.loc3[0] + ', ' + entry.strike + ', ' + entry.dip + ', ' + entry.dipaz;
-		csv += '\nLongitude, ' + entry.loc1[1] + ', ' + entry.loc2[1] + ', ' + entry.loc3[1];
-		csv += '\nElevation, ' + entry.loc1[2] + ', ' + entry.loc2[2] + ', ' + entry.loc3[2];
+		csv += entry.loc2[0] + ', ' + entry.loc2[1] + ', ' + entry.loc3[2] + ', ' + entry.strike + ', ' + entry.dip + ', ' + entry.dipaz;
 		csv += '\n';
 
 	});
