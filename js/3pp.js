@@ -324,7 +324,9 @@ function drawSymbol(p2, dist, dip, dipaz)
 	var scale = ge.createScale('');
 	var orient = ge.createOrientation('');
 
-	if(option.item(0).value == "5-m-Wcircle" || option.item(0).value == "5-m-Bcircle" || option.item(0).value == "5-m-Pcircle")
+	//If the symbol is a circle we need to set some extra options
+	if(option.item(0).value == "5-m-Wcircle" || option.item(0).value == "5-m-Bcircle" || option.item(0).value == "5-m-Pcircle" || option.item(0).value == "5-m-Ocircle" 
+	|| option.item(0).value == "5-m-LBcircle" || option.item(0).value == "5-m-Gcircle" || option.item(0).value == "5-m-BLcircle")
 	{
 		orient.set(dipaz, dip, 0);
 		model.setOrientation(orient);

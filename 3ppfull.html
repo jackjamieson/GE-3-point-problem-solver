@@ -3,7 +3,7 @@
 
     <head>
         <meta name="description" content="Plots geologic symbols on an interactive Google Earth instance by calculating a 3 point problem on the fly." />
-        <meta name="keywords" content="geology, geologic, google, earth, symbol, mapper, plotter, three, 3, point" />
+        <meta name="keywords" content="geology, geologic, google, earth, symbol, mapper, plotter, three, 3, point, problem, solver, geological, plane" />
         <meta name="author" content="Jack Jamieson and Greg Herman">
         <meta name="robots" content="index, follow">
         <title>Dynamic 3-Point Geological-Plane Solver</title>
@@ -39,10 +39,10 @@
 
             <p></p>
             <strong>Fly to:</strong>
-            <input type='text' id='geocode' size="17"  autofocus="true">
+            <input type='text' id='geocode' size="17"  autofocus="true" autocomplete="on">
             <a href="#" class="pure-button pure-button-primary" id="fly">Go</a>
             </p>
-        <Strong>URL Import: </Strong><input type='text' id='urlkmz' size="15">
+        <Strong>URL Import: </Strong><input type='text' id='urlkmz' size="15" autocomplete="on">
         <a href="#" class="pure-button pure-button-primary" id="importURL" >Import KMZ</a>
 
         <p></p>
@@ -83,19 +83,25 @@
             <option value="5-m-Wcircle">White Circle (3D)</option>
             <option value="5-m-Bcircle">Blue Circle (3D)</option>
             <option value="5-m-Pcircle">Pink Circle (3D)</option>
+			<option value="5-m-Ocircle">Orange Circle (3D)</option>
+			<option value="5-m-LBcircle">Light Blue Circle (3D)</option>
+			<option value="5-m-Gcircle">Green Circle (3D)</option>
+			<option value="5-m-BLcircle">Black Circle (3D)</option>
             <option value="arrow">Arrow</option>
             <option value="bed">Bed</option>
             <option value="cleavage">Cleavage</option>
+			<option value="cleavage2">Cleavage(2)</option>
             <option value="joint">Joint</option>
             <option value="layer">Layer</option>
             <option value="slip">Slip</option>
-            <option value="Strike-dip">Strike-Dip</option>
-            <option value="arrow-white">Arrow White</option>
+			<option value="fault">Fault</option>
+            <option value="Strike-dip">Strike-Dip</option>     
             <option value="bed-white">Bed White</option>
             <option value="cleavage-white">Cleavage White</option>
+			<option value="cleavage2_white">Cleavage(2) White</option>
             <option value="joint-white">Joint White</option>
             <option value="layer-white">Layer White</option>
-            <option value="slip-white">Slip White</option>
+			<option value="fault-white">Fault White</option>
 
         </select>
 
